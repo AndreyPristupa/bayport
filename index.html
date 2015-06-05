@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>HOLY SHIP!</title>
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/index.css"/>
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/app.2.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Prata' rel='stylesheet' type='text/css' />
+    <script type="text/javascript">
+        //<![CDATA[
+        var images = new Array()
+        function preload() {
+            for (var i = 0; i < preload.arguments.length; i++) {
+                images[i] = new Image()
+                images[i].src = preload.arguments[i]
+            }
+        }
+        preload(
+                "images/bg_slides/1.jpg",
+                "images/bg_slides/2.jpg",
+                "images/bg_slides/3.jpg",
+                "images/bg_slides/4.jpg",
+                "images/bg_slides/5.jpg",
+                "images/bg_slides/6.jpg",
+                "images/bg_slides/7.jpg",
+                "images/bg_slides/8.jpg"
+        )
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div class="bg"></div>
+        <div id="header">
+            <div id="index-title">
+                <h3 class="hidden">Finest Waterfront Village</h3>
+                <h2>Georgian Bay's</h2>
+            </div>
+            <!-- MAIN WRAPPER FOR ALL CONTENT -->
+            <div id="dynamic-content"></div>
+
+        </div>
+        <div id="menu">
+            <div class="menu-wrapper index-menu clickable">
+                <div id="site-menu" class="hidden">
+                    <ul>
+                        <li>TEST</li>
+                        <li>TEST</li>
+                    </ul>
+                </div>
+                <div id="amenities-menu" class="hidden">
+                    <ul>
+                        <li class="amenities-gallery" data-name="amenities_collection">GALLERY</li>
+                        <li class="amenities-map-collection" data-name="amenities_map_collection">MAP</li>
+                    </ul>
+                </div>
+                <div id="design-menu" class="hidden">
+                    <ul>
+                        <li class="towns-collection" data-name="towns_collection">TOWNS COLLECTION</li>
+                        <li class="fifty-collection" data-name="fifty_collection">50' COLLECTION</li>
+                        <li class="sixty-collection" data-name="sixty_collection">60' COLLECTION</li>
+                    </ul>
+                </div>
+                <div id="menu-logo" class="inline-block">
+                    <img src="images/bayport-200.png" width="300" alt=""/>
+                </div>
+                <div class="visible-index inline-block index-menu-title">
+                    <h1>TOUCH SCREEN TO BEGIN</h1>
+                </div>
+                <div id="active-menu" class="hidden">
+                    <ul>
+                        <li class="design-menu" data-name="design-menu">DESIGN</li>
+                        <li class="amenities-menu" data-name="amenities-menu">AMENITIES</li>
+                        <li class="site-menu" data-name="site-menu">SITE PLAN</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/swiper.min.js"></script>
+        <script type="text/javascript">
+            //
+        </script>
+    </div>
+</body>
+</html>
