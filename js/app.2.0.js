@@ -8,7 +8,7 @@ window.onload = function() {
 
     var current_slide = false,
         slides = [
-            'slide3', 'slide4', 'slide5', 'slide6', 'slide7', 'slide8', 'slide9'
+            'slide2', 'slide3', 'slide4', 'slide5'
         ],
         fade_process = 0,
         stop_bg_slide_interval;
@@ -67,17 +67,18 @@ window.onload = function() {
     }
 
     function stopBackgroundSlider() {
-        if(fade_process)
-        {
-            stop_bg_slide_interval = setInterval(function() {
-                if(!fade_process) {
-                    $elements.bg.style.webkitAnimationPlayState = "paused"
-                    clearInterval(stop_bg_slide_interval)
-                }
-            }, 2000)
-        } else {
-            $elements.bg.style.webkitAnimationPlayState = "paused"
-        }
+        //$('.bg').vegas('pause');
+        //if(fade_process)
+        //{
+        //    stop_bg_slide_interval = setInterval(function() {
+        //        if(!fade_process) {
+        //            $elements.bg.style.webkitAnimationPlayState = "paused"
+        //            clearInterval(stop_bg_slide_interval)
+        //        }
+        //    }, 2000)
+        //} else {
+        //    $elements.bg.style.webkitAnimationPlayState = "paused"
+        //}
     }
 
     function activateMenuStepTwo() {
@@ -131,7 +132,7 @@ window.onload = function() {
 
     function showCollection(event) {
         var btn = event.target
-
+        $('.bg').vegas('destroy')
         for(var i = 0; i < $elements.menu_items.length; i++) {
             $elements.menu_items[i].classList.remove('active')
         }
@@ -201,27 +202,27 @@ window.onload = function() {
         callback && callback()
     }
 
-    $elements.bg.addEventListener("animationiteration",function(e){
-        fade_process = 1
-        for(var i = 0; i < slides.length; i++) {
-            if(!current_slide) {
-                $elements.bg.classList.add(slides[0])
-                current_slide = slides[0]
-                break
-            } else {
-                if(current_slide == slides[slides.length-1]) {
-                    $elements.bg.style.opacity = '0'
-                    $elements.bg.className = 'bg'
-                    current_slide = false
-                    break
-                } else {
-                    var index = slides.indexOf(current_slide)
-                    $elements.bg.classList.add(slides[index+1])
-                    current_slide = slides[index+1]
-                    break
-                }
-            }
-        }
-        setTimeout(function() { fade_process = 0 }, 2000)
-    },false);
+    //$elements.bg.addEventListener("animationiteration",function(e){
+    //    fade_process = 1
+    //    for(var i = 0; i < slides.length; i++) {
+    //        if(!current_slide) {
+    //            $elements.bg.classList.add(slides[0])
+    //            current_slide = slides[0]
+    //            break
+    //        } else {
+    //            if(current_slide == slides[slides.length-1]) {
+    //                $elements.bg.style.opacity = '0'
+    //                $elements.bg.className = 'bg'
+    //                current_slide = false
+    //                break
+    //            } else {
+    //                var index = slides.indexOf(current_slide)
+    //                $elements.bg.classList.add(slides[index+1])
+    //                current_slide = slides[index+1]
+    //                break
+    //            }
+    //        }
+    //    }
+    //    setTimeout(function() { fade_process = 0 }, 2000)
+    //},false);
 }
