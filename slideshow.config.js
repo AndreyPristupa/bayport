@@ -29,6 +29,40 @@ $(document).on('ready', function() {
             'slide4','slide5','slide6',
             'slide7','slide8','slide9',
             'slide10','slide11'
-        ]
+        ],
+        walk: function(slide_num) {
+
+            function raiseTitle(slide_num) {
+                var slide = slide_num + 1
+                var title = document.querySelector('.slideTitle_'+slide)
+                console.log(title,'.slideTitle_'+slide)
+                setTimeout(function() {title.querySelector('h2').classList.remove('hidden')}, 1000)
+                setTimeout(function() {title.querySelector('h3').classList.remove('hidden')}, 3000)
+            }
+
+            function clearTitles(slide_num) {
+                var title = document.querySelector('.slideTitle_'+slide_num)
+
+                if(title) {
+                    title.querySelector('h3').classList.add('hidden')
+                    title.querySelector('h2').classList.add('hidden')
+                }
+            }
+
+            switch(slide_num) {
+                case 0:
+                    raiseTitle(slide_num)
+                    break;
+                case 4:
+                    raiseTitle(slide_num)
+                    break;
+                case 8:
+                    raiseTitle(slide_num)
+                    break;
+                default :
+                    clearTitles(slide_num)
+                    break;
+            }
+        }
     });
 })

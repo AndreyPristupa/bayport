@@ -1,0 +1,47 @@
+%!Adobe-FontList 1.14
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:BickhamScriptPro-Regular
+FamilyName:Bickham Script Pro
+StyleName:Regular
+MenuName:Bickham Script Pro Regular
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Bickham Script Pro
+WritingScript:Roman
+OutlineFileName:\BickhamScriptPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:617908
+FileModTime:1187763165
+DesignSize:240
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:HelveticaNeueLTStd-Lt
+FamilyName:Helvetica Neue LT Std
+StyleName:45 Light
+MenuName:HelveticaNeueLT Std Lt
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Helvetica Neue LT Std 45 Light
+WritingScript:Roman
+OutlineFileName:\HelveticaNeueLTStd-Lt.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:28980
+FileModTime:1188209309
+DesignSize:120
+%EndFont
+

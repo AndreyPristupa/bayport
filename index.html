@@ -4,57 +4,78 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>HOLY SHIP!</title>
-    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
-    <link rel="stylesheet" href="css/index.css"/>
-    <link rel="stylesheet" href="js/vegas.min.css"/>
     <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+
+    <script src="js/jqery-ui.js"></script>
+    <link href="css/mobile.css" rel="stylesheet">
+    <script src="js/jquery-mobile.js"></script>
+
+    <link href="js/keyboard/css/keyboard.css" rel="stylesheet">
+    <script src="js/keyboard/js/jquery.keyboard.js"></script>
+    <script src="js/keyboard/js/jquery.keyboard.extension-mobile.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="js/vegas.min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
     <script src="js/app.2.0.js"></script>
     <script src="js/vegas.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <link rel="stylesheet" href="css/style.css"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Prata' rel='stylesheet' type='text/css' />
-    <script type="text/javascript">
-        //<![CDATA[
-        var images = new Array()
-        function preload() {
-            for (var i = 0; i < preload.arguments.length; i++) {
-                images[i] = new Image()
-                images[i].src = preload.arguments[i]
-            }
-        }
-        preload(
-//                "images/bg_slides/1.jpg",
-//                "images/bg_slides/2.jpg",
-//                "images/bg_slides/3.jpg",
-//                "images/bg_slides/4.jpg",
-//                "images/bg_slides/5.jpg",
-//                "images/bg_slides/6.jpg",
-//                "images/bg_slides/7.jpg",
-//                "images/bg_slides/8.jpg"
-        )
-        //]]>
-    </script>
 </head>
 <body>
     <div id="content">
         <div class="bg"></div>
         <div id="header">
             <div id="index-title">
-                <h3 class="hidden">Finest Waterfront Village</h3>
-                <h2>Georgian Bay's</h2>
+                <div class="slideTitle_1">
+                    <h3>Finest Waterfront Village</h3>
+                    <h2>Georgian Bay's</h2>
+                </div>
+
+                <div class="slideTitle_5">
+                    <h2 class="hidden">A Playground</h2>
+                    <h3 class="hidden">For body and soul</h3>
+                </div>
+
+                <div class="slideTitle_9">
+                    <h3 class="hidden">Paradise</h3>
+                    <h2 class="hidden">A lakeside</h2>
+                </div>
             </div>
             <!-- MAIN WRAPPER FOR ALL CONTENT -->
-            <div id="dynamic-content"></div>
+            <div id="email-form">
+                <div class="email-header">
+                    <span>EMAIL TO FRIEND</span>
+                    <div class="email-close"></div>
+                    <img class="form-close" src="images/form-close.png" alt=""/>
+                </div>
+                <div class="email-form-wrapper">
+                    <form action="#">
+                        <div class="email-form-column">
+                            <label for="form-name">NAME*</label>
+                            <input type="text" class="keyboard" id="form-name" name="name"/>
+
+                            <label for="form-email">EMAIL*</label>
+                            <input type="email" class="keyboard" name="email" id="form-email"/>
+
+                            <label for="form-friend-email">FRIEND'S EMAIL*</label>
+                            <input type="email" class="keyboard" id="form-friend-email" name="friend-email"/>
+                        </div>
+                        <div class="email-form-column">
+                            <label for="form-message">MESSAGE*</label>
+                            <textarea name="message" class="keyboard" id="form-message" cols="30" rows="10"></textarea>
+                            <button type="submit">SEND</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="form-keyboard"></div>
+            </div>
+            <div id="dynamic-content" style="z-index: 1"></div>
 
         </div>
         <div id="menu">
             <div class="menu-wrapper index-menu clickable">
-                <div id="site-menu" class="hidden">
-                    <ul>
-                        <li>TEST</li>
-                        <li>TEST</li>
-                    </ul>
-                </div>
                 <div id="amenities-menu" class="hidden">
                     <ul>
                         <li class="amenities-gallery" data-name="amenities_collection">GALLERY</li>
@@ -75,10 +96,11 @@
                     <h1>TOUCH SCREEN TO BEGIN</h1>
                 </div>
                 <div id="active-menu" class="hidden">
+                    <div class="letter-box hidden"><img src="images/letter-box.png" alt=""/></div>
                     <ul>
                         <li class="design-menu" data-name="design-menu">DESIGN</li>
                         <li class="amenities-menu" data-name="amenities-menu">AMENITIES</li>
-                        <li class="site-menu" data-name="site-menu">SITE PLAN</li>
+                        <li class="site-menu">SITE PLAN</li>
                     </ul>
                 </div>
             </div>
