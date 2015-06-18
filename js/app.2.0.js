@@ -99,6 +99,7 @@ window.onload = function() {
         vegasRemoveSlideshow()
         $elements.bg.style.backgroundImage = 'url(images/site_plan.jpg)'
         clearMainMenu()
+        document.querySelector('.site-menu').classList.add('active')
         clearSecondaryMenu()
     }
 
@@ -174,6 +175,8 @@ window.onload = function() {
             renderSlideshow(container, callback)
         })
 
+        $('.secondary-menu').find('li.active i').css('opacity', '0')
+
         $elements.bg.style.background = 'white'
     }
 
@@ -190,6 +193,7 @@ window.onload = function() {
 
         showItem($elements.letter_box, false, 'inline')
         //jquery(
+        $('.secondary-menu').find('li.active i').css('opacity', '1')
         $($elements.dynamic_content).load(partial_link, function() {
             renderSlideshow('#collection-slideshow', function() {
                var btn = document.getElementsByTagName('button')[0]

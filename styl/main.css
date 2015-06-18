@@ -160,6 +160,10 @@
     -webkit-transform: translate(-470px, -680px) scale(0.6, 0.6);
   }
 }
+html {
+  overflow: hidden !important;
+  cursor: none !important;
+}
 body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -253,7 +257,7 @@ body {
   width: 400px;
 }
 #content .clickable {
-  cursor: pointer;
+  cursor: none;
 }
 #content .menu-wrapper {
   position: absolute;
@@ -318,7 +322,6 @@ body {
 #content .menu-wrapper #design-menu ul li.active i,
 #content .menu-wrapper #amenities-menu ul li.active i,
 #content .menu-wrapper #site-menu ul li.active i {
-  opacity: 1;
   position: absolute;
   font-size: 50px;
   left: 20px;
@@ -581,7 +584,7 @@ body {
   position: absolute;
   right: 26px;
   top: 15px;
-  cursor: pointer;
+  cursor: none;
 }
 #email-form label {
   font-size: 22px;
