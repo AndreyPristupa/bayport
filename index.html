@@ -14,6 +14,7 @@
     <script src="js/keyboard/js/jquery.keyboard.js"></script>
     <script src="js/keyboard/js/jquery.keyboard.extension-mobile.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
     <link rel="stylesheet" href="js/vegas.min.css"/>
     <link rel="stylesheet" href="css/index.css"/>
@@ -46,9 +47,13 @@
             <!-- MAIN WRAPPER FOR ALL CONTENT -->
             <div id="email-form">
                 <div class="email-header">
-                    <span>EMAIL TO FRIEND</span>
+                    <span>Recommend <span id="email-product-name"></span> to a friend</span>
                     <div class="email-close"></div>
                     <img class="form-close" src="images/form-close.png" alt=""/>
+                </div>
+                <div class="thx-message hidden">
+                    <h3>THANK YOU!</h3>
+                    <p>YOUR MESSAGE <br/> HAS BEEN SENT <br/> SUCCESSFULLY.</p>
                 </div>
                 <div class="email-form-wrapper">
                     <form action="#">
@@ -56,38 +61,37 @@
                             <label for="form-name">NAME*</label>
                             <input type="text" class="keyboard" id="form-name" name="name"/>
 
-                            <label for="form-email">EMAIL*</label>
-                            <input type="email" class="keyboard" name="email" id="form-email"/>
-
                             <label for="form-friend-email">FRIEND'S EMAIL*</label>
                             <input type="email" class="keyboard" id="form-friend-email" name="friend-email"/>
                         </div>
                         <div class="email-form-column">
                             <label for="form-message">MESSAGE*</label>
                             <textarea name="message" class="keyboard" id="form-message" cols="30" rows="10"></textarea>
-                            <button type="submit">SEND</button>
                         </div>
+                        <button type="submit">SEND</button>
                     </form>
+                    <div id="form-keyboard"></div>
                 </div>
-                <div id="form-keyboard"></div>
             </div>
             <div id="dynamic-content" style="z-index: 1"></div>
 
         </div>
         <div id="menu">
             <div class="menu-wrapper index-menu clickable">
-                <div id="amenities-menu" class="hidden">
-                    <ul>
-                        <li class="amenities-gallery" data-name="amenities_collection">GALLERY</li>
-                        <li class="amenities-map-collection" data-name="amenities_map_collection">MAP</li>
-                    </ul>
-                </div>
-                <div id="design-menu" class="hidden">
-                    <ul>
-                        <li class="towns-collection" data-name="towns_collection">TOWNS COLLECTION</li>
-                        <li class="fifty-collection" data-name="fifty_collection">50' COLLECTION</li>
-                        <li class="sixty-collection" data-name="sixty_collection">60' COLLECTION</li>
-                    </ul>
+                <div class="secondary-menu">
+                    <div id="amenities-menu" class="hidden">
+                        <ul>
+                            <li class="amenities-gallery" id="AMG" data-name="amenities_collection">GALLERY</li>
+                            <li class="amenities-map-collection" data-name="amenities_map_collection">MAP</li>
+                        </ul>
+                    </div>
+                    <div id="design-menu" class="hidden">
+                        <ul>
+                            <li class="towns-collection" id="TWH" data-name="towns_collection"><i class="fa fa-angle-left"></i>TOWNS COLLECTION</li>
+                            <li class="fifty-collection" data-name="fifty_collection"><i class="fa fa-angle-left"></i>50' COLLECTION</li>
+                            <li class="sixty-collection" data-name="sixty_collection"><i class="fa fa-angle-left"></i>60' COLLECTION</li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="menu-logo" class="inline-block">
                     <img src="images/bayport-200.png" width="300" alt=""/>
@@ -98,7 +102,7 @@
                 <div id="active-menu" class="hidden">
                     <div class="letter-box hidden"><img src="images/letter-box.png" alt=""/></div>
                     <ul>
-                        <li class="design-menu" data-name="design-menu">DESIGN</li>
+                        <li class="design-menu" data-name="design-menu">DESIGNS</li>
                         <li class="amenities-menu" data-name="amenities-menu">AMENITIES</li>
                         <li class="site-menu">SITE PLAN</li>
                     </ul>

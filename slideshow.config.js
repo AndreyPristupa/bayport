@@ -7,8 +7,10 @@ $(document).on('ready', function() {
         preload: true,
         // DELAY MUST BE ALWAYS LOWER THEN aminationDuration ON ONE SECOND!!!
         // It means, if you change delay to 6000ms, animationDuration must be 7000ms
-        animationDuration:6500,
-        delay: 5000,
+        animationDuration:12500,
+        delay: 11000,
+        //animationDuration:1250,
+        //delay: 1100,
         cover:false,
         slides: [
             { src: 'images/bg_slides_new/1.jpg', animation: 'slide1' },
@@ -35,7 +37,6 @@ $(document).on('ready', function() {
             function raiseTitle(slide_num) {
                 var slide = slide_num + 1
                 var title = document.querySelector('.slideTitle_'+slide)
-                console.log(title,'.slideTitle_'+slide)
                 setTimeout(function() {title.querySelector('h2').classList.remove('hidden')}, 1000)
                 setTimeout(function() {title.querySelector('h3').classList.remove('hidden')}, 3000)
             }

@@ -3,6 +3,7 @@
  */
 
 var action = 'click' // for testing on pc
+var swiper
 
 window.onload = function() {
 
@@ -14,7 +15,9 @@ window.onload = function() {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
+        paginationClickable: true,
         slidesPerView: 'auto',
+        onInit: launchPreview,
         coverflow: {
             rotate: 50,
             stretch: 0,
@@ -26,7 +29,7 @@ window.onload = function() {
 
     var $elements = {
         menu:                   document.getElementById('menu'),
-        menu_items:             document.getElementById('menu').getElementsByTagName('li'),
+        menu_items:             document.querySelector('.secondary-menu').getElementsByTagName('li'),
 
         design_menu:            document.getElementById('design-menu'),
         design_menu_button:     document.querySelector('.design-menu'),
@@ -95,7 +98,8 @@ window.onload = function() {
         hideItem(document.querySelector('#index-title'), 'add')
         vegasRemoveSlideshow()
         $elements.bg.style.backgroundImage = 'url(images/site_plan.jpg)'
-        clearMenus()
+        clearMainMenu()
+        clearSecondaryMenu()
     }
 
     function showLinkedMenu(event) {
@@ -108,18 +112,26 @@ window.onload = function() {
             li[i].classList.remove('active')
         })(i) }
 
-        clearMenus()
-        setTimeout(function() {btn.classList.add('active')},100)
+        clearSecondaryMenu()
+        setTimeout(function() {btn.classList.add('active')},300)
 
         document.getElementById(menu_name).classList.remove('hidden')
         document.getElementById(menu_name).classList.add('active')
+
+        if(menu_name == 'design-menu')
+            $('#TWH').click()
+
+        if(menu_name == 'amenities-menu')
+            $('#AMG').click()
     }
 
-    function clearMenus() {
+    function clearSecondaryMenu() {
         [$elements.design_menu, $elements.amenities_menu].forEach(function(e,i) {
             e.classList.remove('active')
         });
+    }
 
+    function clearMainMenu() {
         [$elements.design_menu_button, $elements.amenities_menu_button, $elements.site_menu_button].forEach(function(e,i) {
             e.classList.remove('active')
         })
@@ -141,6 +153,7 @@ window.onload = function() {
         vegasRemoveSlideshow()
         hideEmailForm()
 
+        //clearSecondaryMenu()
         for(var i = 0; i < $elements.menu_items.length; i++) {
             $elements.menu_items[i].classList.remove('active')
         }
@@ -199,20 +212,44 @@ window.onload = function() {
     function sendEmail() {
         document.querySelector('#email-form').style.cssText = 'top:600px;'
 
+        prepareEmailForm()
+
         setTimeout(function() {
             $('.keyboard').keyboard({
                 usePreview: false,
                 alwaysOpen: true,
                 autoAccept: true,
                 appendTo: $('#form-keyboard'),
+                layout: 'custom',
+                customLayout : {
+                    'normal': [
+                        '` 1 2 3 4 5 6 7 8 9 0 - = {bksp}',
+                        '@ q w e r t y u i o p [ ] \\',
+                        'a s d f g h j k l ; \' {enter}',
+                        '{shift} z x c v b n m , . / {shift}',
+                        '{space} {cancel} {extender}'
+                    ],
+                    'shift': [
+                        '~ ! @ # $ % ^ & * ( ) _ + {bksp}',
+                        '{tab} Q W E R T Y U I O P { } |',
+                        'A S D F G H J K L : " {enter}',
+                        '{shift} Z X C V B N M < > ? {shift}',
+                        '{space} {cancel} {extender}'
+                    ]
+                },
                 position: {
                     of: '.email-form-wrapper',
                     my: 'center top',
                     at: 'center bottom',
                     offset: '0 20'
                 }
-            });
+            }).autocomplete( "disable" );
         }, 1000)
+    }
+
+    function prepareEmailForm() {
+       var form = document.querySelector('#email-form')
+        form.querySelector('#email-product-name').innerHTML = document.querySelector('.product-details').innerHTML.replace(/<[^>]*>/g, "")
     }
 
     function hideEmailForm() {
@@ -220,36 +257,92 @@ window.onload = function() {
     }
 
     $('form').on('submit', function(e) {
-        var data = []
-        $('form input, form textarea').each(function(i,e) {
-            var e = $(e)
-            data.push({
-                field: e.attr('name'),
-                value: e.val()
-            })
-        })
+        var data = {}
+        $('form button').text('Sending...')
 
-        $.get('mailer/mailer.php', data).done(function(data) {
-            console.log(data)
-        })
+        var cs =  swiper.slides[swiper.activeIndex]
+
+        data.user_name = $('form input[name=name]').val()
+        data.friend_email = $('form input[name=friend-email]').val()
+        data.message = $('form textarea').val()
+        data.group =  cs.dataset.group,
+        data.url =    cs.dataset.url,
+        data.product_name=  cs.dataset.name
+
+        setTimeout(function() {
+            $.post('/mailer/mailer.php', {data}).done(function(data) {
+                var form_wrapper = $('.email-form-wrapper')
+
+                form_wrapper.html('')
+                form_wrapper.css('background-color','#ccd8e4')
+                $('.email-header span').hide()
+
+                showItem(document.querySelector('.thx-message'), 'remove')
+
+                setTimeout(function() {
+                    hideEmailForm()
+                }, 10000)
+            })
+        }, 200)
 
         return false
     })
     //SEND EMAIL END
 
     // HELPERS
+    function launchPreview(swiper) {
+        var slide = swiper.slides[swiper.activeIndex]
+        var preview_container = document.querySelector('#town-collection-perview')
+
+        if (slide.dataset.coordinatex && preview_container) {
+
+            var cp = slide.dataset.collection
+            var preview_block
+
+            if (cp == 1) {
+                document.querySelector('#collection-th1').classList.remove('hidden')
+                document.querySelector('#collection-th2').classList.add('hidden')
+                preview_block = preview_container.querySelector('.town-collection-block')
+            } else {
+                document.querySelector('#collection-th2').classList.remove('hidden')
+                document.querySelector('#collection-th1').classList.add('hidden')
+                preview_block = preview_container.querySelector('.town-collection-block2')
+            }
+
+            setTimeout(function(){
+                preview_block.style.cssText = 'left:'+slide.dataset.coordinatex+'px;'
+            },200)
+        }
+    }
+
     function renderSlideshow(container_name, callback) {
         var container = container_name || '#collection-slideshow'
 
-        var swiper = new Swiper(container, swiper_default_options);
-
+        swiper = new Swiper(container, swiper_default_options);
+        swiper.on('oninit', function(sw) {
+            console.log(sw)
+        })
         swiper.on('onSlideChangeEnd', function(swiper) {
             var slide = swiper.slides[swiper.activeIndex]
             var preview_container = document.querySelector('#town-collection-perview')
 
             if(slide.dataset.coordinatex && preview_container) {
-                var preview_block = preview_container.querySelector('.town-collection-block')
+
+                var cp = slide.dataset.collection
+                var preview_block
+
+                if(cp == 1) {
+                    document.querySelector('#collection-th1').classList.remove('hidden')
+                    document.querySelector('#collection-th2').classList.add('hidden')
+                    preview_block = preview_container.querySelector('.town-collection-block')
+                } else {
+                    document.querySelector('#collection-th2').classList.remove('hidden')
+                    document.querySelector('#collection-th1').classList.add('hidden')
+                    preview_block = preview_container.querySelector('.town-collection-block2')
+                }
+                setTimeout(function(){
                     preview_block.style.cssText = 'left:'+slide.dataset.coordinatex+'px;'
+                },200)
             }
         })
 

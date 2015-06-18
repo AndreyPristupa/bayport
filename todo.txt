@@ -1,0 +1,80 @@
++ hide cursor on all elements
+
++ slideshow has a scrollbar at the right side on 1080x1920 resolution. Remove.
+
++ Try to slow down all slide about 2 times to make smoother
+
++ Slide with the kitchen #1 stops at x > 0 about 20 px leaving a gap that shows the previous image 
+
+On some occasions th emessage from the fiirst slide "Finest Waterfront Village" stays on all slides.
+// я не смог воспроизвести баг
+
++ "A lakeside paradise" slide stops at x > 0 about 20 px leaving a gap that shows the previous image
+
++ Living rook slide  stops at x > 0 about 20 px leaving a gap that shows the previous image
+
++ Move all secondary navigation tabs down about 2px to eliminate gap between blue bar and the tabs
+
++ Clicking on amenities map tab removes the secondary navigation tabs
+// Проверял, не удаляет
+
++ Change "Design" to "Designs" in main navigation
+
++ When on category page keep "Designs" button highlighted
+
++ On category page can you make the navigation circles clickable too? 
+
++ Add more left and right padding to product name box. About 20px from both sides.
+
+- On category page clicking on product pictures sometimes goes to product page and sometimes goes to next picture. Please so clicking on the picture will always open the corresponding product page.
+// это из-за того что галерея заточена на swipe, эти трудности возникают только при использовании мышки. На тачскрине этой проблемы не будет
+
++ On category page sort all products by sq.ft. ascending
+
++ Please finish TH category page with second block image
+
++ On product page make floor plans smaller so the do not scale up from the original size 480x800
+
++ Move product name down so there is a white gap about 20 px from the edge of the image and the box with product name
+
++ Add left and right padding to the name box
+
++ On current category tub add <  glyph using FontAwesome "f053" to hint user to go back to category page  
+
++ On product page keep "Designs" button highlighted
+
++ On product page make navigation circles clickable if possible
+
++ On keyboard can you replace Tab with @
+
++ The whole email thing is not working
+
++ what does Accept button do? Can we remove it?
+
++ Change Email box heading to "Recommend XXX to a friend" Where XXX is current product name
+
++ Remove "Email" field and leave only "Friend's Email"
+
++ All emails to go out from the sales@mybayport.ca
+
++ To accommodate the field removal move friend's email up and make the send button full width
+
+Pre-populate the message box with the following: "Hi, please find attached pdf file with floor plans for XXX"
+where XXX is the current product name
+I will send you the final copy for this tomorrow evening
+
++ set autocomplete=off for all input fields
+
++ When send is clicked change it to "Sending..." and after successful submission show thank you message  and hide the window in 10 seconds 
+
++ When Amenities  button is clicked show "Gallery" page and highlight the "Gallery" tab
+
+Did you find out if we can use horizontal images? Let me know if answer is negative so I can crop the horizontal images properly.  
+
++ Clicking on "Designs" menu should show the "Townhomes" tab
+
++ Site plan artwork file was uploaded to ftp in Sources folder. Please use to populate Site Plan page
+
++ Envelope appears on Gallery page after some images clicked thru. Please fix so it appears only on product pages 
+
++ The main menu should be flashed right so all button's positions are fixed for all pages. When envelope appears it on the left side of the menu without shifting other buttons 

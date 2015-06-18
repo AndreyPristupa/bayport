@@ -366,7 +366,7 @@ table {
     -webkit-transform: translate(-1257px, -610px) scale(1, 1);
   }
   100% {
-    -webkit-transform: translate(-100px, -400px) scale(0.9, 0.9);
+    -webkit-transform: translate(-150px, -400px) scale(0.9, 0.9);
   }
 }
 @-webkit-keyframes slide8 {
@@ -382,7 +382,7 @@ table {
     -webkit-transform: translate(-915px, -90px) scale(1.6, 1.6);
   }
   100% {
-    -webkit-transform: translate(-250px, -500px) scale(0.7, 0.7);
+    -webkit-transform: translate(-300px, -540px) scale(0.7, 0.7);
   }
 }
 @-webkit-keyframes slide10 {
@@ -398,7 +398,7 @@ table {
     -webkit-transform: translate(-1304px, -1100px) scale(1.4, 1.4);
   }
   100% {
-    -webkit-transform: translate(-400px, -600px) scale(0.6, 0.6);
+    -webkit-transform: translate(-470px, -680px) scale(0.6, 0.6);
   }
 }
 body {
@@ -518,10 +518,15 @@ body {
   top: 0;
   transition: top 600ms ease;
 }
+#content .menu-wrapper #design-menu i,
+#content .menu-wrapper #amenities-menu i,
+#content .menu-wrapper #site-menu i {
+  opacity: 0;
+}
 #content .menu-wrapper #design-menu.active,
 #content .menu-wrapper #amenities-menu.active,
 #content .menu-wrapper #site-menu.active {
-  top: -72px;
+  top: -70px;
 }
 #content .menu-wrapper #design-menu ul,
 #content .menu-wrapper #amenities-menu ul,
@@ -532,6 +537,7 @@ body {
 #content .menu-wrapper #amenities-menu ul li,
 #content .menu-wrapper #site-menu ul li {
   display: inline-block;
+  position: relative;
   border-top: 1px solid #90c188;
   border-left: 1px solid #90c188;
   border-right: 1px solid #90c188;
@@ -550,6 +556,15 @@ body {
   background-color: #90c188;
   color: #fff;
 }
+#content .menu-wrapper #design-menu ul li.active i,
+#content .menu-wrapper #amenities-menu ul li.active i,
+#content .menu-wrapper #site-menu ul li.active i {
+  opacity: 1;
+  position: absolute;
+  font-size: 50px;
+  left: 20px;
+  top: -1px;
+}
 #content .menu-wrapper #active-menu {
   color: #fff;
   font-size: 30px;
@@ -560,6 +575,10 @@ body {
 #content .menu-wrapper #active-menu ul {
   list-style: none;
   margin: 0;
+  top: 0px;
+  position: absolute;
+  left: 133px;
+  width: 536px;
   padding: 0 0 0 14px;
   display: inline-block;
   vertical-align: top;
@@ -683,21 +702,20 @@ body {
 .swiper-caption {
   text-align: center;
   position: absolute;
-  width: 636px;
-  bottom: -32px;
+  width: 480px;
+  bottom: -20px;
   font-size: 40px;
 }
 .product-details {
   position: absolute;
   bottom: -102px;
   text-align: center;
-  left: 33%;
+  width: 100%;
   font-size: 57px;
 /* background-color: #004f8c; */
   font-weight: bold;
 }
 .product-details.collection-return-button {
-  left: 402px;
   top: 281px;
   z-index: 999;
   height: 154px;
@@ -705,10 +723,14 @@ body {
 .product-details.collection-return-button.no-preview-slide {
   top: 269px;
 }
+.product-details.collection-return-button.th {
+  top: 237px;
+}
 .product-details button {
   background-color: #004f8c;
   border: 8px solid #aacea0;
   color: #fff;
+  padding: 0 20px;
 }
 .product-details h3 {
   font-size: 43px;
@@ -722,25 +744,55 @@ body {
   top: 135px;
 }
 #dynamic-content #collection-slideshow .swiper-slide {
-  width: 640px;
-  height: 930px;
+  width: 480px;
+  height: 800px;
 }
 #town-collection-perview {
   position: absolute;
 }
 #town-collection-perview img {
-  opacity: 0.4;
+  opacity: 0.2;
 }
 #town-collection-perview .town-collection-block {
-  background-image: url("../images/townCollections.jpg");
+  background-image: url("../images/Products/Category/TH/townhomesblock.jpg");
+}
+#town-collection-perview .town-collection-block2 {
+  background-image: url("../images/Products/Category/TH/townhomesblock2.jpg");
+}
+#town-collection-perview .town-collection-block,
+#town-collection-perview .town-collection-block2 {
   background-attachment: fixed;
   background-position: top;
   -webkit-transition: 1s;
-  width: 217px;
+  width: 277px;
   left: 236px;
-  height: 335px;
+  height: 286px;
   position: absolute;
   top: 0;
+}
+#town-collection-perview .town-collection-block:after,
+#town-collection-perview .town-collection-block2:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #fff), color-stop(100%, rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #fff 0%, rgba(255,255,255,0) 24%); /* Chrome10+,Safari5.1+ */
+}
+#town-collection-perview .town-collection-block:before,
+#town-collection-perview .town-collection-block2:before {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.8;
+  right: 0;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, #fff)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0) 75%, #fff 100%); /* Chrome10+,Safari5.1+ */
 }
 .letter-box {
   display: inline-block;
@@ -764,7 +816,7 @@ body {
 }
 #email-form #form-keyboard {
   position: relative;
-  top: 202px;
+  top: 50px;
 }
 #email-form .form-close {
   position: absolute;
@@ -796,7 +848,9 @@ body {
   font-family: tahoma;
   font-weight: normal;
   text-shadow: none;
-  top: 34px;
+  top: 25px;
+  margin: 0 10px 0 10px;
+  width: 829px;
   transition: 400ms;
 }
 #email-form form button:hover {
@@ -812,8 +866,11 @@ body {
 #email-form .email-form-column {
   display: inline-block;
   vertical-align: top;
-  width: 48%;
+  width: 49.4%;
   padding: 10px;
+}
+.email-form-wrapper {
+  height: 706px;
 }
 .email-form-container {
   transition: 600ms;
@@ -865,4 +922,19 @@ div.ui-body.ui-keyboard button.ui-keyboard-button.ui-btn {
   font-size: 40px;
   height: 68px;
   padding-left: 20px;
+}
+.ui-keyboard {
+  top: 0 !important;
+}
+.thx-message {
+  display: block;
+  position: absolute;
+  font-size: 62px;
+  top: 35px;
+  left: 255px;
+}
+.thx-message h3 {
+  font-weight: normal;
+  text-align: center;
+  padding-right: 8px;
 }
