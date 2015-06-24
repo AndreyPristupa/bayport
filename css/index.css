@@ -504,7 +504,7 @@ body {
   left: 312px;
 }
 #content .menu-wrapper #design-menu {
-  left: 97px;
+  left: -16px;
 }
 #content .menu-wrapper #design-menu,
 #content .menu-wrapper #amenities-menu,
@@ -552,6 +552,11 @@ body {
 #content .menu-wrapper #site-menu ul li.active {
   background-color: #90c188;
   color: #fff;
+}
+#content .menu-wrapper #design-menu ul li.small,
+#content .menu-wrapper #amenities-menu ul li.small,
+#content .menu-wrapper #site-menu ul li.small {
+  padding: 11px 68px;
 }
 #content .menu-wrapper #design-menu ul li.active i,
 #content .menu-wrapper #amenities-menu ul li.active i,
@@ -654,13 +659,17 @@ body {
 }
 .towns-collection-main-gallery,
 .fifty-collection-main-gallery,
-.sixty-collection-main-gallery {
+.sixty-collection-main-gallery,
+.condo-collection-main-gallery,
+.freehold-collection-main-gallery {
   position: relative;
   top: 450px;
 }
 .towns-collection-main-gallery .swiper-slide,
 .fifty-collection-main-gallery .swiper-slide,
-.sixty-collection-main-gallery .swiper-slide {
+.sixty-collection-main-gallery .swiper-slide,
+.condo-collection-main-gallery .swiper-slide,
+.freehold-collection-main-gallery .swiper-slide {
   width: 800px;
   height: 700px;
 }
@@ -668,6 +677,8 @@ body {
 .towns-collection-main-gallery .swiper-pagination,
 .fifty-collection-main-gallery .swiper-pagination,
 .sixty-collection-main-gallery .swiper-pagination,
+.condo-collection-main-gallery .swiper-pagination,
+.freehold-collection-main-gallery .swiper-pagination,
 #collection-slideshow .swiper-pagination {
   position: relative;
   top: 46px;
@@ -676,6 +687,8 @@ body {
 .towns-collection-main-gallery .swiper-pagination .swiper-pagination-bullet,
 .fifty-collection-main-gallery .swiper-pagination .swiper-pagination-bullet,
 .sixty-collection-main-gallery .swiper-pagination .swiper-pagination-bullet,
+.condo-collection-main-gallery .swiper-pagination .swiper-pagination-bullet,
+.freehold-collection-main-gallery .swiper-pagination .swiper-pagination-bullet,
 #collection-slideshow .swiper-pagination .swiper-pagination-bullet {
   width: 30px;
   height: 30px;
@@ -684,6 +697,8 @@ body {
 .towns-collection-main-gallery .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
 .fifty-collection-main-gallery .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
 .sixty-collection-main-gallery .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.condo-collection-main-gallery .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.freehold-collection-main-gallery .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
 #collection-slideshow .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   border: solid 5px #004f8c;
   padding: 3px;
@@ -692,7 +707,9 @@ body {
 }
 .towns-collection-main-gallery .swiper-pagination,
 .fifty-collection-main-gallery .swiper-pagination,
-.sixty-collection-main-gallery .swiper-pagination {
+.sixty-collection-main-gallery .swiper-pagination,
+.condo-collection-main-gallery .swiper-pagination,
+.freehold-collection-main-gallery .swiper-pagination {
   top: 175px;
 }
 .swiper-caption {
