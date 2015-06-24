@@ -109,9 +109,9 @@ window.onload = function() {
             $menu = document.querySelector('#active-menu'),
             li = $menu.getElementsByTagName('li')
 
-        for (var i = 0; i < li.length; i++) { (function(i){
-            li[i].classList.remove('active')
-        })(i) }
+        //for (var i = 0; i < li.length; i++) { (function(i){
+        //    li[i].classList.remove('active')
+        //})(i) }
 
         clearSecondaryMenu()
         setTimeout(function() {btn.classList.add('active')},300)
@@ -157,11 +157,20 @@ window.onload = function() {
         //clearSecondaryMenu()
         for(var i = 0; i < $elements.menu_items.length; i++) {
             $elements.menu_items[i].classList.remove('active')
+            if($($elements.menu_items[i]).find('i').length) {
+                $($elements.menu_items[i]).find('i').css('opacity','0')
+            }
         }
 
-        btn.classList.add('active')
+        if(!btn.dataset.name) {
+            btn = $(btn).parent()
+        } else {
+            btn = $(btn)
+        }
 
-        activateCollectionMainGallery(btn.dataset.name ,function() {
+        $(btn).addClass('active')
+
+        activateCollectionMainGallery(btn.data('name') ,function() {
             attachHandlers()
         })
     }
@@ -197,11 +206,11 @@ window.onload = function() {
         $($elements.dynamic_content).load(partial_link, function() {
             renderSlideshow('#collection-slideshow', function() {
                var btn = document.getElementsByTagName('button')[0]
-                btn.addEventListener(action, function() {
-                    $($elements.dynamic_content).load('html_partials/'+btn.dataset.collection+'.html', function() {
-                        activateCollectionMainGallery(btn.dataset.collection, function(){ attachHandlers() })
-                    })
-                }, false)
+                //btn.addEventListener(action, function() {
+                //    $($elements.dynamic_content).load('html_partials/'+btn.dataset.collection+'.html', function() {
+                //        activateCollectionMainGallery(btn.dataset.collection, function(){ attachHandlers() })
+                //    })
+                //}, false)
             })
         })
     }
@@ -262,19 +271,28 @@ window.onload = function() {
 
     $('form').on('submit', function(e) {
         var data = {}
+        var cs =  swiper.slides[swiper.activeIndex]
+        var slides = swiper.container[0].getElementsByClassName('swiper-slide')
+
         $('form button').text('Sending...')
 
-        var cs =  swiper.slides[swiper.activeIndex]
+        function getPlanUrls() {
+            var urls = []
+            for(var i = 0; i < slides.length ; i++) {
+                urls.push(slides[i].dataset.url)
+            }
+            return urls
+        }
 
         data.user_name = $('form input[name=name]').val()
         data.friend_email = $('form input[name=friend-email]').val()
         data.message = $('form textarea').val()
         data.group =  cs.dataset.group,
-        data.url =    cs.dataset.url,
+        data.url =    getPlanUrls(),
         data.product_name=  cs.dataset.name
 
         setTimeout(function() {
-            $.post('/mailer/mailer.php', {data}).done(function(data) {
+            $.post('http://localhost/mailer/mailer.php', data).done(function(data) {
                 var form_wrapper = $('.email-form-wrapper')
 
                 form_wrapper.html('')
@@ -306,11 +324,18 @@ window.onload = function() {
             if (cp == 1) {
                 document.querySelector('#collection-th1').classList.remove('hidden')
                 document.querySelector('#collection-th2').classList.add('hidden')
+                document.querySelector('#collection-th3').classList.add('hidden')
                 preview_block = preview_container.querySelector('.town-collection-block')
-            } else {
+            } else if(cp == 2) {
                 document.querySelector('#collection-th2').classList.remove('hidden')
                 document.querySelector('#collection-th1').classList.add('hidden')
+                document.querySelector('#collection-th3').classList.add('hidden')
                 preview_block = preview_container.querySelector('.town-collection-block2')
+            } else {
+                document.querySelector('#collection-th3').classList.remove('hidden')
+                document.querySelector('#collection-th1').classList.add('hidden')
+                document.querySelector('#collection-th2').classList.add('hidden')
+                preview_block = preview_container.querySelector('.town-collection-block3')
             }
 
             setTimeout(function(){
@@ -323,9 +348,7 @@ window.onload = function() {
         var container = container_name || '#collection-slideshow'
 
         swiper = new Swiper(container, swiper_default_options);
-        swiper.on('oninit', function(sw) {
-            console.log(sw)
-        })
+
         swiper.on('onSlideChangeEnd', function(swiper) {
             var slide = swiper.slides[swiper.activeIndex]
             var preview_container = document.querySelector('#town-collection-perview')
@@ -335,15 +358,23 @@ window.onload = function() {
                 var cp = slide.dataset.collection
                 var preview_block
 
-                if(cp == 1) {
+                if (cp == 1) {
                     document.querySelector('#collection-th1').classList.remove('hidden')
                     document.querySelector('#collection-th2').classList.add('hidden')
+                    document.querySelector('#collection-th3').classList.add('hidden')
                     preview_block = preview_container.querySelector('.town-collection-block')
-                } else {
+                } else if(cp == 2) {
                     document.querySelector('#collection-th2').classList.remove('hidden')
                     document.querySelector('#collection-th1').classList.add('hidden')
+                    document.querySelector('#collection-th3').classList.add('hidden')
                     preview_block = preview_container.querySelector('.town-collection-block2')
+                } else {
+                    document.querySelector('#collection-th3').classList.remove('hidden')
+                    document.querySelector('#collection-th1').classList.add('hidden')
+                    document.querySelector('#collection-th2').classList.add('hidden')
+                    preview_block = preview_container.querySelector('.town-collection-block3')
                 }
+
                 setTimeout(function(){
                     preview_block.style.cssText = 'left:'+slide.dataset.coordinatex+'px;'
                 },200)

@@ -493,9 +493,6 @@ body {
   margin: 0 0 0 100px;
   width: 400px;
 }
-#content .clickable {
-  cursor: pointer;
-}
 #content .menu-wrapper {
   position: absolute;
   top: 1300px;
@@ -559,7 +556,6 @@ body {
 #content .menu-wrapper #design-menu ul li.active i,
 #content .menu-wrapper #amenities-menu ul li.active i,
 #content .menu-wrapper #site-menu ul li.active i {
-  opacity: 1;
   position: absolute;
   font-size: 50px;
   left: 20px;
@@ -759,8 +755,12 @@ body {
 #town-collection-perview .town-collection-block2 {
   background-image: url("../images/Products/Category/TH/townhomesblock2.jpg");
 }
+#town-collection-perview .town-collection-block3 {
+  background-image: url("../images/Products/Category/TH/townhomesblock3.jpg");
+}
 #town-collection-perview .town-collection-block,
-#town-collection-perview .town-collection-block2 {
+#town-collection-perview .town-collection-block2,
+#town-collection-perview .town-collection-block3 {
   background-attachment: fixed;
   background-position: top;
   -webkit-transition: 1s;
@@ -771,7 +771,8 @@ body {
   top: 0;
 }
 #town-collection-perview .town-collection-block:after,
-#town-collection-perview .town-collection-block2:after {
+#town-collection-perview .town-collection-block2:after,
+#town-collection-perview .town-collection-block3:after {
   position: absolute;
   content: ' ';
   width: 100%;
@@ -783,7 +784,8 @@ body {
   background: -webkit-linear-gradient(left, #fff 0%, rgba(255,255,255,0) 24%); /* Chrome10+,Safari5.1+ */
 }
 #town-collection-perview .town-collection-block:before,
-#town-collection-perview .town-collection-block2:before {
+#town-collection-perview .town-collection-block2:before,
+#town-collection-perview .town-collection-block3:before {
   position: absolute;
   content: ' ';
   width: 100%;
@@ -822,7 +824,6 @@ body {
   position: absolute;
   right: 26px;
   top: 15px;
-  cursor: pointer;
 }
 #email-form label {
   font-size: 22px;
